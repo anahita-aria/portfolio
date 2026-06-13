@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Original Surfer";
+  src: url("/fonts/OriginalSurfer-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-background: #242731;
+  --color-surface: #2d313d;
+  --color-surface-hover: #353a48;
+  --color-border: #3a3f4f;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #dbdce1;
+  --color-text-muted: #6e7286;
+  --color-accent: #a2ffd2;
+  --color-accent-light: #c4ffe3;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Global noise texture overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/hero/hero-noise.png");
+  background-size: 1024px 1024px;
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 0;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-background);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #a2ffd2 0%, #c4ffe3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Observation card: animated border light ── */
+@property --obs-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.obs-card {
+  position: relative;
+  padding: 2px;
+  background: #2d313d;
+  transition: transform 0.4s ease;
+}
+
+.obs-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(from var(--obs-angle), transparent 40%, #F5F59022 65%, #F5F59066 80%, #F5F590 90%, #F5F59066 95%, #F5F59022 98%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.obs-card:hover {
+  transform: translateY(-4px);
+  background: transparent;
+}
+
+.obs-card:hover::before {
+  opacity: 1;
+  animation: obs-trace 4s linear infinite;
+}
+
+.obs-card-inner {
+  position: relative;
+  background: #2d313d;
+}
+
+@keyframes obs-trace {
+  to { --obs-angle: 360deg; }
+}
+
