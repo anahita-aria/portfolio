@@ -3,7 +3,7 @@
 **Senior Product Designer · AI-Native Designer with an Engineering Mind**
 
 📍 Milan, Italy · Open to relocation to Berlin, Germany
-✉️ [aanahita.aaria@gmail.com](mailto:aanahita.aaria@gmail.com) · 🔗 [LinkedIn](https://www.linkedin.com/) · 🌐 [Portfolio](https://localhost:3000)
+✉️ [aanahita.aaria@gmail.com](mailto:aanahita.aaria@gmail.com) · 🔗 [LinkedIn](https://www.linkedin.com/in/anahita-aria/) · 🌐 [Portfolio](https://localhost:3000)
 
 This repository contains the source for my personal portfolio website — a collection of case studies covering fintech, crypto/DeFi, enterprise, and consumer product design work.
 
